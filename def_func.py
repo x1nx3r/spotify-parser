@@ -44,5 +44,18 @@ def convert_to_url(array):
         urllist.append(song_url)
     return urllist
 
+def get_track_info(song_name):
+    results = sp.search(q=song_name, type='track')
+    items = results['tracks']['items']
+    if not items:
+        print(f"No results found for '{song_name}'")
+        return []
 
+    track = items[0]
+    track_info = [
+        track['name'],
+        track['artists'][0]['name'],
+        track['album']['name']
+    ]
 
+    return track_info
