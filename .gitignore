@@ -1,2 +1,4 @@
 #ignore the token file
 tokens.env
+.cache
+__pycache__
